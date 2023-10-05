@@ -50,7 +50,7 @@ class User
 
     public function setPassword(string $password): User
     {
-        $this->password = $password;
+        $this->password = password_hash($password, PASSWORD_BCRYPT, ["cost" => 10]);
         return $this;
     }
 
